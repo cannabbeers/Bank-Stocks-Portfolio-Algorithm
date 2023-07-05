@@ -4,11 +4,6 @@ from pathlib import Path
 import hvplot.pandas
 import matplotlib.pyplot as plt
 import os
-import warnings
-warnings.filterwarnings('ignore')
-pd.set_option('display.max_columns', 1000)
-pd.set_option('display.width', 1000)
-from watermark import watermark
 
 
 
@@ -63,12 +58,44 @@ def csv_to_dataframe(folder_path, rename_columns = False):
     return dataframes
 
 def clean_timestamp(dataframe):
-     dataframe.index = pd.DatetimeIndex( dataframe.index.tolist() ) 
-     return dataframe
+    """
+    Cleans the index of the DataFrame by converting it into a DatetimeIndex.
+
+    Parameters
+    ----------
+    dataframe : DataFrame
+        The input DataFrame with an index that needs to be cleaned.
+
+    Returns
+    -------
+    dataframe : DataFrame
+        The DataFrame with a cleaned (DatetimeIndex) index.
+    """
+    # Converts the index of the DataFrame into a DatetimeIndex
+    dataframe.index = pd.DatetimeIndex( dataframe.index.tolist() ) 
+    return dataframe
 
 
 def resample(dataframe, resample_dataframe):
+    """
+    Resamples a DataFrame according to the index of another DataFrame. The function forward fills any missing values and then drops remaining NaNs.
+
+    Parameters
+    ----------
+    dataframe : DataFrame
+        The DataFrame to be resampled.
+    resample_dataframe : DataFrame
+        The DataFrame whose index is used for resampling.
+
+    Returns
+    -------
+    dataframe : DataFrame
+        The resampled DataFrame.
+    """
+    # Reindex the dataframe based on the index of the resample_dataframe
     dataframe = dataframe.reindex(resample_dataframe.index)
+    # Fill the missing values with forward fill method
     dataframe = dataframe.fillna(method='ffill')
+    # Drop remaining NaN values
     dataframe = dataframe.dropna()
     return dataframe
