@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 pd.set_option('display.max_columns', 1000)
 pd.set_option('display.width', 1000)
 
-pn.extension(design = 'material', theme = 'dark')
+# pn.extension(design = 'material', theme = 'dark')
 
 
 stock_path = "Resources/Stock_Data/Daily/"
