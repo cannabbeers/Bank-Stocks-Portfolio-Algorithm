@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-import hvplot.pandas
 import matplotlib.pyplot as plt
 import os
 
