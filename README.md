@@ -1,6 +1,6 @@
 # _Bank Stocks Portfolio Algorithm_
 
-  In our second project we developed a bank stock advisor. Our code runs a ML model to predict bank stock prices which then allows us to give/recieve adivce based on a persons portfolio. 
+  In our second project we developed a bank stock advisor. Our code runs a ML model to predict bank stock prices which then allows us to give/receive advice based on a persons' portfolio. 
   
 -----------------
 
