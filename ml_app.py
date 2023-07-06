@@ -68,7 +68,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 #Header
 def main():
     st.title("Banking Stock Portfolio with Machine Learning and Algorithms")
-    st.write("*Chris Cummock, Eyasu Alemu,Gregory Kulin,John Garcia, Mark Beers, and Samuel Jew*", unsafe_allow_html=True)
+    st.write("*Chris Cummock, Eyasu Alemu,Gregory Krulin,John Garcia, Mark Beers, and Samuel Jew*", unsafe_allow_html=True)
     st.write('---', unsafe_allow_html=True)
  
    
