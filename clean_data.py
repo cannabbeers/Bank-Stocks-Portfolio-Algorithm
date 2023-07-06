@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import matplotlib.pyplot as plt
-import panel as pn
 import os
 from utility import csv_to_dataframe
 from utility import clean_timestamp
