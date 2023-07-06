@@ -2,10 +2,10 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-import hvplot.pandas
+import plotly.express as px
 import matplotlib.pyplot as plt
 import os
-import panel as pn
+import streamlit as st
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from pandas.tseries.offsets import DateOffset
@@ -27,9 +27,6 @@ from sklearn.metrics import explained_variance_score
 metrics = [r2_score, mean_absolute_error, mean_squared_error, median_absolute_error, max_error, explained_variance_score]
 metric_names = ['r2_score', 'mean_absolute_error', 'mean_squared_error', 
                 'median_absolute_error', 'max_error', 'explained_variance_score']
-
-# Extend Panel functionality with the 'material' design template
-pn.extension(design = 'material')
 
 
 def split_scale_data(X, y, random_state_test = 1):
@@ -154,10 +151,14 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        linear_reg_dict[a]['Plot_pred_test'] = pd.Series(linear_reg_dict[a]['Predict'], index = linear_reg_dict[a]['y_Test'].index).hvplot() * (linear_reg_dict[a]['y_Test']).hvplot()
-        
+        linear_reg_dict[a]['Plot_pred_test'] = px.line(pd.Series(linear_reg_dict[a]['Predict'], 
+                                                             index = linear_reg_dict[a]['y_Test'].index))
+        linear_reg_dict[a]['Plot_pred_test'].add_scatter(y=linear_reg_dict[a]['y_Test'], mode='lines')
+
         # Generate a plot comparing the predictions to the actual values
-        linear_reg_dict[a]['Plot_pred_actual'] = pd.Series(linear_reg_dict[a]['Predict'], index = linear_reg_dict[a]['y_Test'].index).hvplot() * y.hvplot()
+        linear_reg_dict[a]['Plot_pred_actual'] = px.line(pd.Series(linear_reg_dict[a]['Predict'], 
+                                                               index = linear_reg_dict[a]['y_Test'].index))
+        linear_reg_dict[a]['Plot_pred_actual'].add_scatter(y=y, mode='lines')
         
         # Compute scores for each metric and store them
         for b in metrics:
@@ -172,7 +173,7 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['Feature_Importance']= pd.DataFrame(linear_reg_dict[a]['Linear_Reg_Model'].coef_ , index = X.columns)
 
         # Generate and store a plot of feature importances
-        linear_reg_dict[a]['Feature_Importance_Plot'] = linear_reg_dict[a]['Feature_Importance'].hvplot.bar(rot = 45, width = 800, height = 600)
+        linear_reg_dict[a]['Feature_Importance_Plot'] = px.bar(linear_reg_dict[a]['Feature_Importance'])
         
     # After looping over all targets, return the dictionary containing all models, predictions, scores, and plots
     return linear_reg_dict
@@ -228,10 +229,14 @@ def multi_target__regression(df, target_list, start= '2005-4-1',  end= '2019-1-1
         ml_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        ml_reg_dict[a]['Plot_pred_test'] = pd.Series(ml_reg_dict[a]['Predict'], index = ml_reg_dict[a]['y_Test'].index).hvplot() * (ml_reg_dict[a]['y_Test']).hvplot()
-        
+        ml_reg_dict[a]['Plot_pred_test'] = px.line(pd.Series(ml_reg_dict[a]['Predict'], 
+                                                             index = ml_reg_dict[a]['y_Test'].index))
+        ml_reg_dict[a]['Plot_pred_test'].add_scatter(y=ml_reg_dict[a]['y_Test'], mode='lines')
+
         # Generate a plot comparing the predictions to the actual values
-        ml_reg_dict[a]['Plot_pred_actual'] = pd.Series(ml_reg_dict[a]['Predict'], index = ml_reg_dict[a]['y_Test'].index).hvplot() * y.hvplot()
+        ml_reg_dict[a]['Plot_pred_actual'] = px.line(pd.Series(ml_reg_dict[a]['Predict'], 
+                                                           index = ml_reg_dict[a]['y_Test'].index))
+        ml_reg_dict[a]['Plot_pred_actual'].add_scatter(y=y, mode='lines')
         
         # Compute scores for each metric and store them
         for b in metrics:
@@ -242,7 +247,7 @@ def multi_target__regression(df, target_list, start= '2005-4-1',  end= '2019-1-1
         ml_reg_dict[a]['Score'] = score_df
 
         # Compute and store feature importances
-        ml_reg_dict[a]['Feature_Importance']= pd.DataFrame(ml_reg_dict[a]['Linear_Reg_Model'].feature_importances_ , index = X.columns)
+        ml_reg_dict[a]['Feature_Importance_Plot'] = px.bar(ml_reg_dict[a]['Feature_Importance'])
 
         # Generate and store a plot of feature importances
         ml_reg_dict[a]['Feature_Importance_Plot'] = ml_reg_dict[a]['Feature_Importance'].hvplot.bar(rot = 45, width = 800, height = 600)
