@@ -1,15 +1,14 @@
 # _Bank Stocks Portfolio Algorithm_
 
-  In our second project we used a selection of bank stock data we gathered to determine potential gains throughout ones' portfolio. In order to do this we have used a ML(machine learning) algorithm to drop a portfolio inside of our questionnaire and it will return potential gains/loses. 
-
+ 
 -----------------
 
 ## Technologies
 
   - Operating Systems: Mac OS, Windows
   - Programming Language: Python
-  - Libraries: Pandas,Numpy,Hvplot,Matplotlib,Warnings,Watermark,Panel,Standard Scaler
-  - Frameworks: JupyterLab
+  - Libraries: Pandas,Numpy,Hvplot,Matplotlib,Warnings,Watermark,Panel,Standard Scaler,Streamlit
+  - Frameworks: JupyterLab,HTML
 
 -----------------
 
@@ -33,36 +32,12 @@ https://github.com/greg-krulin/Project-2-/assets/127170402/a15aa7d7-cf0d-487a-9e
 
     conda activate dev
 
--2. Begin installing each module within your terminal
+-2. Install the modules within your terminal
 
--Pandas
-
-    pip install pandas
-
--Warnings(could be installed)
-
-    pip install pytest-warnings
-
--Hvplot
-
-    pip install hvplot
-
--Matplotlib
-
-    conda install matplotlib
-
--Watermark
-
-    pip install watermark
-    
--Panel 
-
-    pip install panel
-
--Standard Scaler
-
-    pip install standard-scaler
+    pip install -r requirements.txt
 
 ------------------------
 
 # Usage
+
+  1. Launch Streamlit
