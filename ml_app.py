@@ -72,17 +72,22 @@ def corr_graph1():
 def corr_graph2():
     return st.header('Stock Corr App2'), st.plotly_chart(bound_bar_multi_plot2())
 
+
 #Full Application
-tab1, tab2, tab3, tab4 =st.tabs(["Stock Graphs", "Correlation", "Multi-Correlation", "Machine Learning Results"])
+def app_tabs_application():
+    tab1, tab2, tab3, tab4 =st.tabs(["Stock Graphs", "Correlation", "Multi-Correlation", "Machine Learning Results"])
 
-with tab1:
-    stock_graphs()
+    with tab1:
+        stock_graphs()
 
-with tab2:
-    corr_graph1()
+    with tab2:
+        corr_graph1()
 
-with tab3:
-    corr_graph2()
+    with tab3:
+        corr_graph2()
 
-with tab4:
-    ml_results_tab()
+    with tab4:
+        ml_results_tab()
+
+
+app_tabs = app_tabs_application()
