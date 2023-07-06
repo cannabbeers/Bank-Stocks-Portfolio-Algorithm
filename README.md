@@ -1,6 +1,7 @@
 # _Bank Stocks Portfolio Algorithm_
 
- 
+  In our second project we developed a bank stock advisor. Our code runs a ML model to predict bank stock prices which then allows us to give/recieve adivce based on a persons portfolio. 
+  
 -----------------
 
 ## Technologies
@@ -38,6 +39,36 @@ https://github.com/greg-krulin/Project-2-/assets/127170402/a15aa7d7-cf0d-487a-9e
 
 ------------------------
 
-# Usage
+## Usage
 
   1. Launch Streamlit
+  
+  2. 
+
+  3. Chat with the bot and receive bank stock data/advice
+     
+   https://github.com/greg-krulin/Project-2-/assets/127170402/eb8f12eb-0ada-420a-9274-d13f8c287ed5
+
+  4.
+
+-----------
+
+## Contributors 
+
+- Greg Krulin - Lead code developer and researcher  
+Email: grgr279@gmail.com
+
+- Mark Beers - Lead research   
+Email: beers.mark@gmail.com
+
+- Chris Cummock - Research and advisor  
+Email: ccummock@gmail.com
+
+- Eyasu Alemu - Streamlit and chatbot production  
+Email: bekaqa01@gmail.com
+
+- Samuel Jew - Streamlit and chatbot production  
+Email: samjew95@gmail.com
+
+- John Garcia - Github manager and researcher  
+Email: jdganna222@gmail.com
