@@ -2,7 +2,7 @@ variable,URL,symbol,Description
 bank_credit_all_commercial_banks_TOTBKCR,https://fred.stlouisfed.org/series/TOTBKCR,TOTBKCR,"total lending activity of all commercial banks - includes Government, Ag, Consumer, Business, Real Estate, Trade ie. Import/export"
 real_estate_loans_reisdential_revolving_home_equity_loans_RHEACBW027SBOG,https://fred.stlouisfed.org/series/RHEACBW027SBOG,RHEACBW027SBOG,"Home Equity Line of Credit or HELOCs extend revolving credit to borrower utilizing residential property as collateral, usually in second place behind a primary mortgage."
 real_estate_loans_residential_real_estate_all_commercial_banks_RREACBW027SBOG,https://fred.stlouisfed.org/series/RREACBW027SBOG,RREACBW027SBOG,composed of several types of residential mortgage loans and represents all outstanding residential real estate debt issued by commercial banks
-Bank_Prime_Loan_Rate_DPRIME,https://fred.stlouisfed.org/series/DPRIME,DPRIME,Prime Loan Rate - set by banks
+Bank_Prime_Loan_Rate_DPRIME,https://fred.stlouisfed.org/series/DPRIME,DPRIME,"Prime Loan Rate - set by banks, this will impact lending rates to consumers and businesses. "
 Federal_Funds_Effective_Rate_DFF,https://fred.stlouisfed.org/series/DFF,DFF,overnight lending rate between financial institutions - set by the Fed
 CPI_Annual_Rate_CORESTICKM158SFRBATL,https://fred.stlouisfed.org/series/CORESTICKM158SFRBATL/,CORESTICKM158SFRBATL,"Consumer Price Index for all urban consumers, indicates CPI percentage change annually"
 CPI_Percent_Change_CORESTICKM159SFRBATL,https://fred.stlouisfed.org/series/CORESTICKM159SFRBATL/,CORESTICKM159SFRBATL,inflation/deflation indicator CPI percentage changes based by period
