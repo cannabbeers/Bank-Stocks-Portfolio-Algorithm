@@ -1,20 +1,15 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-import hvplot.pandas
-import matplotlib.pyplot as plt
+import plotly.express as px
 from sklearn.preprocessing import StandardScaler
 import os
-import panel as pn
 from ml_models_code import multi_target_linear_regression
 from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix
-
+import streamlit as st
 
 pd.set_option('display.max_columns', 1000)
 pd.set_option('display.width', 1000)
-
-
-pn.extension(design = 'material', theme = 'default')  #, theme = 'dark'
 
 
 #Script
@@ -22,55 +17,72 @@ stock_ml_dict = multi_target_linear_regression(stock_close_analysis_df, stock_da
 
 ml_features = list(stock_ml_dict['BAC_Close'].keys())
 
+
 #Functions
 def get_lin_reg_results(reg_dict, stock, result):
     return reg_dict[stock][result]
 
 def corr_heat_plot(corr_matrix_df, target):
-    return corr_matrix_df[target].hvplot.heatmap(width = 1000, height =600, cmap = 'bwr')
+    fig = px.imshow(corr_matrix_df, x= corr_matrix_df[target])
+    return fig
 
 def corr_heat_plot2(corr_matrix_df, targets):
-    return corr_matrix_df[targets].hvplot.heatmap(rot = 45, width = 1000, height =600, cmap = 'bwr')
+    fig = px.imshow(corr_matrix_df, x= corr_matrix_df[targets])
+    return fig
 
 
-#Widgets
-stock_widget = pn.widgets.Select(name="Stock", options=list(stock_ml_dict.keys()))
+#Widget Functions
+def stock_select():
+    return  st.selectbox("Stock", list(stock_ml_dict.keys()))
 
-results_widget = pn.widgets.Select(name="Linear Regression Results", options = ml_features )
+def results_widget():
+    return st.selectbox("Linear Regression Results", ml_features )
 
-variable_widget = pn.widgets.Select(name="variable", value='BAC_Close', options=list(stock_close_analysis_df.columns))
+def variable_widget():
+    return st.selectbox("variable", list(stock_close_analysis_df.columns))
 
-multi_select = pn.widgets.MultiSelect(name='MultiSelect', value= ['BAC_Close'],
-    options= list(stock_close_analysis_df.columns), size = 4)
+def stock_graph_multi_select():
+    return st.multiselect('MultiSelect', list(stock_close_analysis_df.columns), default= ['BAC_Close'])
 
-variable_widget2 = pn.widgets.MultiSelect(name="variable", value=['BAC_Close', 'C_Close'], options=list(corr_matrix.columns))
+def variable_widget2():
+    return st.multiselect("variable", list(corr_matrix.columns), default=['BAC_Close', 'C_Close'])
+
 
 #Bound functions
-bound_plot = pn.bind(get_lin_reg_results,reg_dict=stock_ml_dict, stock=stock_widget, result = results_widget)
+def bound_plot():
+    return get_lin_reg_results(stock_ml_dict, stock_select(),   results_widget())
 
-bound_bar_plot = pn.bind(corr_heat_plot,corr_matrix_df=corr_matrix, target=variable_widget)
+def bound_bar_plot():
+    return corr_heat_plot(corr_matrix, variable_widget())
 
-bound_bar_multi_plot2 = pn.bind(corr_heat_plot2, corr_matrix_df=corr_matrix, targets=variable_widget2)
-
+def bound_bar_multi_plot2():
+    return corr_heat_plot2(corr_matrix, variable_widget2())
 
 
 #Apps
-ml_results_app = pn.Column(stock_widget,results_widget, bound_plot)
+def ml_results_tab():
+    return st.title('Bank Stock Portfolio Analysis'), st.header('ML Results'), st.write(bound_plot())
+       
+def stock_graphs():
+    return st.header('Data Graphs'), st.plotly_chart(px.line(stock_analysis_df, y= stock_graph_multi_select(), width = 1000, height = 600))
 
-stock_graph_app = pn.Column(multi_select, pn.bind(stock_analysis_df.hvplot, y= multi_select, width = 1000, height = 600))
+def corr_graph1():
+    return st.header('Stock Corr App1'), st.plotly_chart(bound_bar_plot())
 
-stock_corr_app = pn.Column(variable_widget, bound_bar_plot)
+def corr_graph2():
+    return st.header('Stock Corr App2'), st.plotly_chart(bound_bar_multi_plot2())
 
-stock_corr_app2 = pn.Column(variable_widget2, bound_bar_multi_plot2)
+#Full Application
+tab1, tab2, tab3, tab4 =st.tabs(["Stock Graphs", "Correlation", "Multi-Correlation", "Machine Learning Results"])
 
-app_tabs = pn.Tabs(
-    ('Stock Corr App1', stock_corr_app),
-    ('Stock Corr App2', stock_corr_app2),
-    ('Data Graphs App', stock_graph_app),
-    ('ML Results App', ml_results_app),
-    dynamic=True, sizing_mode='stretch_both'
-).servable(
-    title='Bank Stock Portfolio Analysis'
-    )
+with tab1:
+    stock_graphs()
 
-pn.serve(app_tabs)
+with tab2:
+    corr_graph1()
+
+with tab3:
+    corr_graph2()
+
+with tab4:
+    ml_results_tab()
