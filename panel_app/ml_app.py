@@ -7,14 +7,14 @@ from sklearn.preprocessing import StandardScaler
 import os
 import panel as pn
 from ml_models_code import multi_target_linear_regression
-from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix
+from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description
 
 
 pd.set_option('display.max_columns', 1000)
 pd.set_option('display.width', 1000)
 
 
-pn.extension(design = 'material', theme = 'default')  #, theme = 'dark'
+pn.extension(object = 'mathjax', design = 'material', theme = 'default')  #, theme = 'dark'
 
 
 #Script
@@ -55,6 +55,8 @@ bound_bar_multi_plot2 = pn.bind(corr_heat_plot2, corr_matrix_df=corr_matrix, tar
 
 
 #Apps
+app_tab_description = pn.pane.Markdown(app_description)
+
 ml_results_app = pn.Column(stock_widget,results_widget, bound_plot)
 
 stock_graph_app = pn.Column(multi_select, pn.bind(stock_analysis_df.hvplot, y= multi_select, width = 1000, height = 600))
@@ -64,6 +66,7 @@ stock_corr_app = pn.Column(variable_widget, bound_bar_plot)
 stock_corr_app2 = pn.Column(variable_widget2, bound_bar_multi_plot2)
 
 app_tabs = pn.Tabs(
+    ("App Instructions", app_tab_description),
     ('Stock Corr App1', stock_corr_app),
     #('Stock Corr App2', stock_corr_app2),
     ('Data Graphs App', stock_graph_app),
