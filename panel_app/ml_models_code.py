@@ -148,16 +148,16 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['Linear_Reg_Model'].fit(X_train_scaled, y_train)
 
         # Generate predictions using the model
-        linear_reg_dict[a]['Predict'] = linear_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled)
+        linear_reg_dict[a]['Predict'] = pd.Series(linear_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled), index = y_test.index, name = 'Prediction')
 
         # Store the test set labels
         linear_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        linear_reg_dict[a]['Plot_pred_test'] = pd.Series(linear_reg_dict[a]['Predict'], index = linear_reg_dict[a]['y_Test'].index).hvplot() * (linear_reg_dict[a]['y_Test']).hvplot()
+        linear_reg_dict[a]['Plot_pred_test'] = linear_reg_dict[a]['Predict'].hvplot() * (linear_reg_dict[a]['y_Test']).hvplot()
         
         # Generate a plot comparing the predictions to the actual values
-        linear_reg_dict[a]['Plot_pred_actual'] = pd.Series(linear_reg_dict[a]['Predict'], index = linear_reg_dict[a]['y_Test'].index).hvplot() * y.hvplot()
+        linear_reg_dict[a]['Plot_pred_actual'] = linear_reg_dict[a]['Predict'].hvplot() * y.hvplot()
         
         # Compute scores for each metric and store them
         for b in metrics:
@@ -217,21 +217,21 @@ def multi_target__regression(df, target_list, start= '2005-4-1',  end= '2019-1-1
         # Split and scale the data
         X_train_scaled, X_test_scaled, y_train, y_test = time_split_scale_data(X, y, start, end)
 
-        # Initialize and fit a Linear Regression model
-        ml_reg_dict[a]['Linear_Reg_Model'] = model()
-        ml_reg_dict[a]['Linear_Reg_Model'].fit(X_train_scaled, y_train)
+        # Initialize and fit Regression model
+        ml_reg_dict[a]['Reg_Model'] = model()
+        ml_reg_dict[a]['Reg_Model'].fit(X_train_scaled, y_train)
 
         # Generate predictions using the model
-        ml_reg_dict[a]['Predict'] = ml_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled)
+        ml_reg_dict[a]['Predict'] = pd.Series(ml_reg_dict[a]['Reg_Model'].predict(X_test_scaled), index = y_test.index, name = 'Prediction')
 
         # Store the test set labels
         ml_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        ml_reg_dict[a]['Plot_pred_test'] = pd.Series(ml_reg_dict[a]['Predict'], index = ml_reg_dict[a]['y_Test'].index).hvplot() * (ml_reg_dict[a]['y_Test']).hvplot()
+        ml_reg_dict[a]['Plot_pred_test'] = ml_reg_dict[a]['Predict'].hvplot() * (ml_reg_dict[a]['y_Test']).hvplot()
         
         # Generate a plot comparing the predictions to the actual values
-        ml_reg_dict[a]['Plot_pred_actual'] = pd.Series(ml_reg_dict[a]['Predict'], index = ml_reg_dict[a]['y_Test'].index).hvplot() * y.hvplot()
+        ml_reg_dict[a]['Plot_pred_actual'] = ml_reg_dict[a]['Predict'].hvplot() * y.hvplot()
         
         # Compute scores for each metric and store them
         for b in metrics:
