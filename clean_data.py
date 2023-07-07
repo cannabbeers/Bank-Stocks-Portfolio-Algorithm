@@ -167,19 +167,20 @@ Happy exploring and we hope our tool assists you in your financial analysis and 
 ml_results_description_dict = {
     'Linear_Reg_Model': """
 ## Linear_Reg_Model
-This is a Linear Regression model that has been trained on the dataset for a particular stock. It has learned from the relationships in the training data and can now predict the target variable (the stock's closing price) based on other input features.
+This is a Linear Regression model that has been trained on the dataset for this particular stock. It has learned from the relationships in the training data and can now try to predict the stock's closing price based on other input features.
 """,
     'Predict':"""
 ## Predict
 After the model has been trained, it can make predictions on unseen data. These predictions are made on the test data - a subset of the entire dataset that the model has not seen during training. This allows us to evaluate how well the model might perform in real-world scenarios.
+Below you are seeing the model's price predictions.
 """,
     'y_Test':"""
 ## y_Test
 These are the actual target values from the test data. We compare these true values with the model's predictions to assess the performance of the model.
 """,
     'Plot_pred_test':"""
-## Plot_pred_test'
-This is a graphical representation of the model's predictions compared with the actual target values from the test data. The plot helps us visually see how well the model's predictions align with the real values.
+## Plot_pred_test
+This is a graphical representation of the model's predictions compared with the actual target values from the test data. The plot helps us visually see how well the model's predictions align with the real values. The predictions are in red, and the real values are in blue.
 """,
     'Plot_pred_actual':"""
 ## Plot_pred_actual

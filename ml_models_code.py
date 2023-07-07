@@ -145,25 +145,26 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['Linear_Reg_Model'].fit(X_train_scaled, y_train)
 
         # Generate predictions using the model
-        linear_reg_dict[a]['Predict'] = linear_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled)
+        linear_reg_dict[a]['Predict'] = pd.Series(linear_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled), index = y_test.index, name = 'Prediction')
+        #linear_reg_dict[a]['Predict'] = linear_reg_dict[a]['Linear_Reg_Model'].predict(X_test_scaled)
 
         # Store the test set labels
         linear_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        linear_reg_dict[a]['Plot_pred_test'] = px.line(pd.Series(linear_reg_dict[a]['Predict'], 
-                                                             index = linear_reg_dict[a]['y_Test'].index)).update_traces(line_color='red')
+        linear_reg_dict[a]['Plot_pred_test'] = px.line(
+            linear_reg_dict[a]['Predict'],
+            width = 1000, height = 600
+        ).update_traces(line_color='red')
         linear_reg_dict[a]['Plot_pred_test'].add_trace(px.line(linear_reg_dict[a]['y_Test']).data[0])
 
         # Generate a plot comparing the predictions to the actual values
         linear_reg_dict[a]['Plot_pred_actual'] = px.line(
-            pd.Series(
-                linear_reg_dict[a]['Predict'],
-                index = linear_reg_dict[a]['y_Test'].index),
+            linear_reg_dict[a]['Predict'],
             width = 1000, height = 600
         ).update_traces(line_color='red')
         linear_reg_dict[a]['Plot_pred_actual'].add_trace(px.line(y).data[0])
-        
+
         # Compute scores for each metric and store them
         for b in metrics:
             score_metrics.append((b(linear_reg_dict[a]['y_Test'], linear_reg_dict[a]['Predict'])))
