@@ -5,7 +5,7 @@ import plotly.express as px
 from sklearn.preprocessing import StandardScaler
 import os
 from ml_models_code import multi_target_linear_regression
-from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix
+from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description 
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -152,8 +152,10 @@ def corr_graph2():
 
 #Full Application
 def app_tabs_application():
-    tab1, tab2, tab4 =st.tabs([ "Correlation", "Stock Graphs", "Machine Learning Results"])
+    tab01, tab1, tab2, tab4 =st.tabs([ "Appinstructions", "Correlation", "Stock Graphs", "Machine Learning Results"])
 
+    with tab01:
+        st.write(app_description , unsafe_allow_html=True)
     with tab1:
         corr_graph1()
         
