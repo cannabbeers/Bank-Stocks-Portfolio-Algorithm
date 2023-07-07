@@ -5,7 +5,7 @@ import plotly.express as px
 from sklearn.preprocessing import StandardScaler
 import os
 from ml_models_code import multi_target_linear_regression
-from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description 
+from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description, ml_results_description_dict 
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -93,6 +93,7 @@ ml_features = list(stock_ml_dict['BAC_Close'].keys())
 
 #Functions
 def get_lin_reg_results(reg_dict, stock, result):
+    st.markdown(ml_results_description_dict[result])
     return reg_dict[stock][result]
 
 def corr_heat_plot(corr_matrix_df, target):
@@ -167,6 +168,7 @@ def app_tabs_application():
         #corr_graph2()
 
     with tab4:
+        #st.markdown(ml_results_description, unsafe_allow_html=True)
         ml_results_tab()
 
 app_tabs = app_tabs_application()
