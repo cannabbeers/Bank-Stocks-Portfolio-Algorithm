@@ -168,7 +168,6 @@ def app_tabs_application():
         #corr_graph2()
 
     with tab4:
-        #st.markdown(ml_results_description, unsafe_allow_html=True)
         ml_results_tab()
 
 app_tabs = app_tabs_application()
