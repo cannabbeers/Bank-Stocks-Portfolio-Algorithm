@@ -63,7 +63,8 @@ fred_data = ['bank_credit_all_commercial_banks_TOTBKCR',
              'Net_perc_dometic_banks_tightening_standards_for_commerical_and_industrial_loans_large_firms_DRTSCILM']
 
 
-
+#remove below stocks because earlist date stock started trading was past 2010
+#want to start 04/2005
 l = list(stocks_dfs.keys())
 l.remove('Daily_SQ_df')
 l.remove('Daily_SOFI_df')

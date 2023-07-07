@@ -152,13 +152,14 @@ def corr_graph2():
 
 #Full Application
 def app_tabs_application():
-    tab1, tab2, tab4 =st.tabs(["Stock Graphs", "Correlation", "Machine Learning Results"])
+    tab1, tab2, tab4 =st.tabs([ "Correlation", "Stock Graphs", "Machine Learning Results"])
 
     with tab1:
-        stock_graphs()
+        corr_graph1()
+        
 
     with tab2:
-        corr_graph1()
+        stock_graphs()
 
     #with tab3:
         #corr_graph2()
