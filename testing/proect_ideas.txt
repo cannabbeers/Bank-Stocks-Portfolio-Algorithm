@@ -17,3 +17,6 @@ citibank and jp morgan prices having negative correlation.
 
 day with crisis or day without crisis try to find this out.
 
+
+add small instructions
+how from a third party prespective

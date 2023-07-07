@@ -155,10 +155,10 @@ def app_tabs_application():
     tab01, tab1, tab2, tab4 =st.tabs([ "Appinstructions", "Correlation", "Stock Graphs", "Machine Learning Results"])
 
     with tab01:
-        st.write(app_description , unsafe_allow_html=True)
+        st.markdown(app_description , unsafe_allow_html=True)
+    
     with tab1:
         corr_graph1()
-        
 
     with tab2:
         stock_graphs()

@@ -24,9 +24,9 @@ from sklearn.metrics import max_error
 from sklearn.metrics import explained_variance_score
 
 # Define a list of metric functions and their corresponding names
-metrics = [r2_score, mean_absolute_error, mean_squared_error, median_absolute_error, max_error, explained_variance_score]
-metric_names = ['r2_score', 'mean_absolute_error', 'mean_squared_error', 
-                'median_absolute_error', 'max_error', 'explained_variance_score']
+metrics = [r2_score, explained_variance_score, mean_absolute_error, mean_squared_error, median_absolute_error, max_error]
+metric_names = ['r2_score', 'explained_variance_score', 'mean_absolute_error', 'mean_squared_error', 
+                'median_absolute_error', 'max_error']
 
 
 def split_scale_data(X, y, random_state_test = 1):

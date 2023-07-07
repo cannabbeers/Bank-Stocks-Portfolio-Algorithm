@@ -125,59 +125,42 @@ corr_matrix = stock_close_analysis_df.corr()
 
 app_description = """
 
-Welcome to our Banking Stock Portfolio Analysis application! 
+# Instructions for Using the Bank Stock Portfolio Analysis App
 
-This tool is designed to provide insights into banking stock data and help you make informed decisions. It's simple and intuitive to use. Please follow the instructions below to get started:
+Welcome to our Banking Stock Portfolio Analysis application! This tool is designed to provide insights into banking stock data and help you make informed decisions. It's simple and intuitive to use. Please follow the instructions below to get started:
 
+## How to Navigate
 
-How to Navigate
+The application has a tabbed layout with three main sections: 
 
-The application has a tabbed layout with three main sections:
-
-    *Correlation: This section provides a heatmap of the correlations 
-    between different variables in the stock data.
-
-    *Stock Graphs: Here you can visualize the trend of various stocks over time.
-
-    *Machine Learning Results: This tab displays results from 
-    our machine learning analysis.
+1. **Correlation**: This section provides a heatmap of the correlations between different variables in the stock data.
+2. **Stock Graphs**: Here you can visualize the trend of various stocks over time.
+3. **Machine Learning Results**: This tab displays results from our machine learning analysis.
 
 To navigate between these sections, click on the tab headers at the top of the page.
 
-
-
-How to Interact
+## How to Interact
 
 Within each tab, you can interact with the displayed data and visualizations using the Streamlit widgets provided. Here's what each widget allows you to do:
 
-    *Stock Dropdown: This allows you to select the specific stock that you want to 
-    analyze or visualize. 
-    Click on the dropdown menu, and select the stock of your interest from the list.
+1. **Stock Dropdown**: This allows you to select the specific stock that you want to analyze or visualize. Click on the dropdown menu, and select the stock of your interest from the list.
+   
+2. **Linear Regression Results Dropdown**: This widget allows you to select the specific result of the linear regression analysis that you want to display.
 
+3. **Variable Dropdown**: Use this to select a variable from the dataset for which you'd like to see its correlation heatmap.
 
-    *Linear Regression Results Dropdown: This widget allows you to select the 
-    specific result of the linear regression analysis that you want to display.
+4. **Multiselect Widgets**: These let you select multiple variables or stocks for your analysis. Click on the widget, and select the items of your interest from the dropdown list that appears.
 
-    *Variable Dropdown: Use this to select a variable from the dataset for 
-    which you'd like to see its correlation heatmap.
-
-    *Multiselect Widgets: These let you select multiple variables or 
-    stocks for your analysis. Click on the widget, and select the items of 
-    your interest from the dropdown list that appears.
-
-
-
-    
-Viewing Graphs
+## Viewing Graphs
 
 The line plots and heatmaps update dynamically based on your selections from the dropdowns and multiselect widgets. You can hover over the plots to see specific values.
 
-
-
-Chat Support
+## Chat Support
 
 For any questions or issues, you can use the chat widget located at the bottom right of the page. Click on the widget to open the chat box and type your message. Our support team will respond as soon as possible.
+
 Happy exploring and we hope our tool assists you in your financial analysis and decision-making process!
+
 """
 
 
