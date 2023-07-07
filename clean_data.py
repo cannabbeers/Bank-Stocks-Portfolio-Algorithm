@@ -166,36 +166,36 @@ Happy exploring and we hope our tool assists you in your financial analysis and 
 
 ml_results_description_dict = {
     'Linear_Reg_Model': """
-## 'Linear_Reg_Model'
+## Linear_Reg_Model
 This is a Linear Regression model that has been trained on the dataset for a particular stock. It has learned from the relationships in the training data and can now predict the target variable (the stock's closing price) based on other input features.
 """,
     'Predict':"""
-## 'Predict'
+## Predict
 After the model has been trained, it can make predictions on unseen data. These predictions are made on the test data - a subset of the entire dataset that the model has not seen during training. This allows us to evaluate how well the model might perform in real-world scenarios.
 """,
     'y_Test':"""
-## 'y_Test'
+## y_Test
 These are the actual target values from the test data. We compare these true values with the model's predictions to assess the performance of the model.
 """,
     'Plot_pred_test':"""
-## 'Plot_pred_test'
+## Plot_pred_test'
 This is a graphical representation of the model's predictions compared with the actual target values from the test data. The plot helps us visually see how well the model's predictions align with the real values.
 """,
     'Plot_pred_actual':"""
-## 'Plot_pred_actual'
+## Plot_pred_actual
 Similar to 'Plot_pred_test', this is a plot of the model's predictions against all actual target values, including both the training and test data. This plot helps to visualize how well the model performs across the entire dataset.
 """,
     'Score':"""
-## 'Score'
+## Score
 This includes different performance metrics that quantify how well the model is doing. These metrics include the R^2 score (which measures the proportion of the variance for the dependent variable that's explained by the model), Mean Absolute Error (the average absolute difference between the predicted and actual values), and several others. The higher the R^2 and the lower the error measures, the better the model is performing.
 """,
     'Feature_Importance':"""
-## 'Feature_Importance'
+## Feature_Importance
 In a linear regression model, each feature (or input variable) is assigned a coefficient that represents its 'importance' or influence in predicting the target variable. A larger absolute value of the coefficient suggests that the feature has a stronger impact on the prediction. However, these importance values are dependent on the scale of the features, so care should be taken when interpreting them.
 
 """,
     'Feature_Importance_Plot':"""
-## 'Feature_Importance_Plot'
+## Feature_Importance_Plot
 This is a bar plot representing the importance of each feature. It allows us to see at a glance which features are most influential in the model's predictions. The features are represented on the x-axis and their coefficients (importance) on the y-axis.
 """
 }
