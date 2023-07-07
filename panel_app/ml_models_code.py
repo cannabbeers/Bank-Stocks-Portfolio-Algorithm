@@ -154,10 +154,10 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        linear_reg_dict[a]['Plot_pred_test'] = linear_reg_dict[a]['Predict'].hvplot() * (linear_reg_dict[a]['y_Test']).hvplot()
+        linear_reg_dict[a]['Plot_pred_test'] = (linear_reg_dict[a]['Predict'].hvplot(color = 'red') * (linear_reg_dict[a]['y_Test']).hvplot(color = 'blue')).opts(width = 1000, height = 600)
         
         # Generate a plot comparing the predictions to the actual values
-        linear_reg_dict[a]['Plot_pred_actual'] = linear_reg_dict[a]['Predict'].hvplot() * y.hvplot()
+        linear_reg_dict[a]['Plot_pred_actual'] = (linear_reg_dict[a]['Predict'].hvplot(color = 'red') * y.hvplot(color = 'blue')).opts(width = 1000, height = 600)
         
         # Compute scores for each metric and store them
         for b in metrics:
@@ -228,10 +228,10 @@ def multi_target__regression(df, target_list, start= '2005-4-1',  end= '2019-1-1
         ml_reg_dict[a]['y_Test'] = y_test
 
         # Generate a plot comparing the predictions to the test set values
-        ml_reg_dict[a]['Plot_pred_test'] = ml_reg_dict[a]['Predict'].hvplot() * (ml_reg_dict[a]['y_Test']).hvplot()
+        ml_reg_dict[a]['Plot_pred_test'] = ml_reg_dict[a]['Predict'].hvplot(color = 'red') * (ml_reg_dict[a]['y_Test']).hvplot(color='blue')
         
         # Generate a plot comparing the predictions to the actual values
-        ml_reg_dict[a]['Plot_pred_actual'] = ml_reg_dict[a]['Predict'].hvplot() * y.hvplot()
+        ml_reg_dict[a]['Plot_pred_actual'] = ml_reg_dict[a]['Predict'].hvplot(color='red') * y.hvplot(color='blue')
         
         # Compute scores for each metric and store them
         for b in metrics:

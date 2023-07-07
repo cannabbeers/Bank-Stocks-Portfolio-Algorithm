@@ -74,10 +74,10 @@ stock_corr_app2 = pn.Column(variable_widget2, bound_bar_multi_plot2)
 
 app_tabs = pn.Tabs(
     ("App Instructions", app_tab_description),
-    ('Stock Corr App1', stock_corr_app),
+    ('Correlation', stock_corr_app),
     #('Stock Corr App2', stock_corr_app2),
-    ('Data Graphs App', stock_graph_app),
-    ('ML Results App', ml_results_app),
+    ('Stock Graphs', stock_graph_app),
+    ('Machine Learning Results', ml_results_app),
     dynamic=True, sizing_mode='stretch_both'
 ).servable(
     title='Bank Stock Portfolio Analysis'
