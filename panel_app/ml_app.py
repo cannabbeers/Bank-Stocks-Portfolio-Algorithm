@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 import panel as pn
 from ml_models_code import multi_target_linear_regression
-from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description
+from clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description, ml_results_description_dict 
 
 
 pd.set_option('display.max_columns', 1000)
@@ -24,7 +24,12 @@ ml_features = list(stock_ml_dict['BAC_Close'].keys())
 
 #Functions
 def get_lin_reg_results(reg_dict, stock, result):
+     #This isn't showing up for some reason
     return reg_dict[stock][result]
+
+def get_description(result):
+    return pn.pane.Markdown(ml_results_description_dict [result])
+
 
 def corr_heat_plot(corr_matrix_df, target):
     return corr_matrix_df[target].hvplot.heatmap(width = 1000, height =600, cmap = 'bwr')
@@ -46,18 +51,20 @@ multi_select = pn.widgets.MultiSelect(name='MultiSelect', value= ['BAC_Close'],
 variable_widget2 = pn.widgets.MultiSelect(name="Multi-Variable", value=['BAC_Close', 'C_Close'], options=list(corr_matrix.columns))
 
 #Bound functions
-bound_plot = pn.bind(get_lin_reg_results,reg_dict=stock_ml_dict, stock=stock_widget, result = results_widget)
+bound_plot = pn.bind(get_lin_reg_results, reg_dict=stock_ml_dict, stock=stock_widget, result = results_widget)
 
 bound_bar_plot = pn.bind(corr_heat_plot,corr_matrix_df=corr_matrix, target=variable_widget)
 
 bound_bar_multi_plot2 = pn.bind(corr_heat_plot2, corr_matrix_df=corr_matrix, targets=variable_widget2)
+
+bound_description = pn.bind(get_description, results_widget)
 
 
 
 #Apps
 app_tab_description = pn.pane.Markdown(app_description)
 
-ml_results_app = pn.Column(stock_widget,results_widget, bound_plot)
+ml_results_app = pn.Column(stock_widget,results_widget,bound_description, bound_plot)
 
 stock_graph_app = pn.Column(multi_select, pn.bind(stock_analysis_df.hvplot, y= multi_select, width = 1000, height = 600))
 
