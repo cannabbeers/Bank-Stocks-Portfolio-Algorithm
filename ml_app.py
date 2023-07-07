@@ -96,7 +96,11 @@ def get_lin_reg_results(reg_dict, stock, result):
     return reg_dict[stock][result]
 
 def corr_heat_plot(corr_matrix_df, target):
-    fig = px.imshow(corr_matrix_df, x= corr_matrix_df[target])
+    fig = px.imshow(
+        corr_matrix_df, x= corr_matrix_df[target].index, 
+        y= corr_matrix.columns,  width = 1000, height = 800
+        ).update_layout(yaxis_nticks=len(list(corr_matrix_df.columns)),
+                        xaxis_nticks = 1)
     return fig
 
 def corr_heat_plot2(corr_matrix_df, targets):
@@ -148,7 +152,7 @@ def corr_graph2():
 
 #Full Application
 def app_tabs_application():
-    tab1, tab2, tab3, tab4 =st.tabs(["Stock Graphs", "Correlation", "Multi-Correlation", "Machine Learning Results"])
+    tab1, tab2, tab4 =st.tabs(["Stock Graphs", "Correlation", "Machine Learning Results"])
 
     with tab1:
         stock_graphs()
@@ -156,8 +160,8 @@ def app_tabs_application():
     with tab2:
         corr_graph1()
 
-    with tab3:
-        corr_graph2()
+    #with tab3:
+        #corr_graph2()
 
     with tab4:
         ml_results_tab()

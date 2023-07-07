@@ -156,8 +156,12 @@ def multi_target_linear_regression(df, target_list, start= '2005-4-1',  end= '20
         linear_reg_dict[a]['Plot_pred_test'].add_trace(px.line(linear_reg_dict[a]['y_Test']).data[0])
 
         # Generate a plot comparing the predictions to the actual values
-        linear_reg_dict[a]['Plot_pred_actual'] = px.line(pd.Series(linear_reg_dict[a]['Predict'], 
-                                                               index = linear_reg_dict[a]['y_Test'].index)).update_traces(line_color='red')
+        linear_reg_dict[a]['Plot_pred_actual'] = px.line(
+            pd.Series(
+                linear_reg_dict[a]['Predict'],
+                index = linear_reg_dict[a]['y_Test'].index),
+            width = 1000, height = 600
+        ).update_traces(line_color='red')
         linear_reg_dict[a]['Plot_pred_actual'].add_trace(px.line(y).data[0])
         
         # Compute scores for each metric and store them
