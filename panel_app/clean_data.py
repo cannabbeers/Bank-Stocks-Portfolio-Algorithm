@@ -40,9 +40,9 @@ volume_columns = ["BAC_Volume", "C_Volume", "FCNCA_Volume", "FITB_Volume",
                   "JPM_Volume", "SBNY_Volume", "SIVBQ_Volume", "USB_Volume"]
 
 
-stock_data = ['BAC_Close', 'BAC_Volume', 'C_Close', 'C_Volume', 'FCNCA_Close', 'FCNCA_Volume', 
-'FITB_Close', 'FITB_Volume', 'JPM_Close', 'JPM_Volume', 'SBNY_Close', 'SBNY_Volume', 
-'SIVBQ_Close', 'SIVBQ_Volume', 'USB_Close', 'USB_Volume', "VIX_Close"]
+stock_data = ['BAC_Close', 'C_Close','FCNCA_Close',  
+'FITB_Close',  'JPM_Close',  'SBNY_Close',  
+'SIVBQ_Close',  'USB_Close',  "VIX_Close"]
 
 #The following list are columns that have been dropped due to high correlation with other columns that are redundtant
 analysis_dropped_categories = [

@@ -43,7 +43,7 @@ variable_widget = pn.widgets.Select(name="variable", value='BAC_Close', options=
 multi_select = pn.widgets.MultiSelect(name='MultiSelect', value= ['BAC_Close'],
     options= list(stock_close_analysis_df.columns), size = 4)
 
-variable_widget2 = pn.widgets.MultiSelect(name="variable", value=['BAC_Close', 'C_Close'], options=list(corr_matrix.columns))
+variable_widget2 = pn.widgets.MultiSelect(name="Multi-Variable", value=['BAC_Close', 'C_Close'], options=list(corr_matrix.columns))
 
 #Bound functions
 bound_plot = pn.bind(get_lin_reg_results,reg_dict=stock_ml_dict, stock=stock_widget, result = results_widget)
@@ -65,7 +65,7 @@ stock_corr_app2 = pn.Column(variable_widget2, bound_bar_multi_plot2)
 
 app_tabs = pn.Tabs(
     ('Stock Corr App1', stock_corr_app),
-    ('Stock Corr App2', stock_corr_app2),
+    #('Stock Corr App2', stock_corr_app2),
     ('Data Graphs App', stock_graph_app),
     ('ML Results App', ml_results_app),
     dynamic=True, sizing_mode='stretch_both'
