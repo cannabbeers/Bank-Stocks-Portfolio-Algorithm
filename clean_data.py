@@ -141,15 +141,13 @@ To navigate between these sections, click on the tab headers at the top of the p
 
 ## How to Interact
 
-Within each tab, you can interact with the displayed data and visualizations using the Streamlit widgets provided. Here's what each widget allows you to do:
+Within the 'Stocks Graphs' tab and the 'Machine Learning Results' tab, you can interact with the displayed data and visualizations using the Streamlit widgets provided. Here's what each widget allows you to do:
 
-1. **Stock Dropdown**: This allows you to select the specific stock that you want to analyze or visualize. Click on the dropdown menu, and select the stock of your interest from the list.
+1. **Multiselect Widgets**: These let you select multiple variables or stocks for your analysis. Click on the widget, and select the items of your interest from the dropdown list that appears.
    
 2. **Linear Regression Results Dropdown**: This widget allows you to select the specific result of the linear regression analysis that you want to display.
 
-3. **Variable Dropdown**: Use this to select a variable from the dataset for which you'd like to see its correlation heatmap.
-
-4. **Multiselect Widgets**: These let you select multiple variables or stocks for your analysis. Click on the widget, and select the items of your interest from the dropdown list that appears.
+3. **Stock Dropdown**: This allows you to select the specific stock that you want to analyze or visualize. Click on the dropdown menu, and select the stock of your interest from the list.
 
 ## Viewing Graphs
 

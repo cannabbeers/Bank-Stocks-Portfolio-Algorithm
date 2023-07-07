@@ -96,16 +96,17 @@ def get_lin_reg_results(reg_dict, stock, result):
     st.markdown(ml_results_description_dict[result])
     return reg_dict[stock][result]
 
-def corr_heat_plot(corr_matrix_df, target):
+def corr_heat_plot(corr_matrix_df):#, target):
     fig = px.imshow(
-        corr_matrix_df, x= corr_matrix_df[target].index, 
+        corr_matrix_df, 
+        #x= corr_matrix_df[target].index, 
         y= corr_matrix.columns,  width = 1000, height = 800
         ).update_layout(yaxis_nticks=len(list(corr_matrix_df.columns)),
                         xaxis_nticks = 1)
     return fig
 
-def corr_heat_plot2(corr_matrix_df, targets):
-    fig = px.imshow(corr_matrix_df, x= corr_matrix_df[targets])
+def corr_heat_plot2(corr_matrix_df):#, targets):
+    fig = px.imshow(corr_matrix_df)#, x= corr_matrix_df[targets])
     return fig
 
 
@@ -131,7 +132,7 @@ def bound_plot():
     return get_lin_reg_results(stock_ml_dict, stock_select(),   results_widget())
 
 def bound_bar_plot():
-    return corr_heat_plot(corr_matrix, variable_widget())
+    return corr_heat_plot(corr_matrix)#, variable_widget())
 
 def bound_bar_multi_plot2():
     return corr_heat_plot2(corr_matrix, variable_widget2())
@@ -145,7 +146,7 @@ def stock_graphs():
     return st.header('Data Graphs'), st.plotly_chart(px.line(stock_analysis_df, y= stock_graph_multi_select(), width = 1000, height = 600))
 
 def corr_graph1():
-    return st.header('Stock Corr App1'), st.plotly_chart(bound_bar_plot())
+    return st.header('Stock and Economic Data Correlation'), st.plotly_chart(bound_bar_plot())
 
 def corr_graph2():
     return st.header('Stock Corr App2'), st.plotly_chart(bound_bar_multi_plot2())
