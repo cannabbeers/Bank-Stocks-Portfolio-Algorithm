@@ -12,6 +12,7 @@
   - Frameworks: JupyterLab,HTML
 
 -----------------
+Below is optional as app has been deployed on the following [url](https://greg-krulin-bank-stock-machine-learning-algo-and--ml-app-o0ncgm.streamlit.app/)
 
 ## Installation 
 
