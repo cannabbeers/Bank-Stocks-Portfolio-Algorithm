@@ -48,16 +48,22 @@ background-color: rgba(0, 0, 0, 0);
 """
 html_string = '''
 
-<script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"1567a8c14d361efbb6eec61c8484893d6","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
-    })(document, window.kommunicate || {});
-/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/MoyUvYtyVx2gWrXYAS-Sy"
+width="100%"
+style="height: 100%; min-height: 700px"
+frameborder="0"
+></iframe>
+
+<script>
+  window.chatbaseConfig = {
+    chatbotId: "MoyUvYtyVx2gWrXYAS-Sy",
+  }
+</script>
+<script
+  src="https://www.chatbase.co/embed.min.js"
+  id="MoyUvYtyVx2gWrXYAS-Sy"
+  defer>
 </script>
 
     '''
