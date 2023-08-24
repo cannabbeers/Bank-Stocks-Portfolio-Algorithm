@@ -48,13 +48,6 @@ background-color: rgba(0, 0, 0, 0);
 """
 html_string = '''
 
-<iframe
-src="https://www.chatbase.co/chatbot-iframe/MoyUvYtyVx2gWrXYAS-Sy"
-width="100%"
-style="height: 100%; min-height: 700px"
-frameborder="0"
-></iframe>
-
 <script>
   window.chatbaseConfig = {
     chatbotId: "MoyUvYtyVx2gWrXYAS-Sy",
