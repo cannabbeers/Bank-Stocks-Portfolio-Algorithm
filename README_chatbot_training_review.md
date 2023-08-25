@@ -1,7 +1,8 @@
 ## Prompt Engineering Large Language Model For This Project
-*(as defined and described by [ChatGPT 4](https://chat.openai.com/))*
 
-**Definition:** *process of designing, testing, and refining prompts or questions that are given to a machine learning model, especially language models, to elicit desired responses or behaviors. The goal is to optimize the input to the model in a way that the output aligns with the intended result.*
+
+**Prompt Engineering** Definition:** *process of designing, testing, and refining prompts or questions that are given to a machine learning model, especially language models, to elicit desired responses or behaviors. The goal is to optimize the input to the model in a way that the output aligns with the intended result.*
+*(per [ChatGPT 4](https://chat.openai.com/))*
 
 1. Define the Objective: 
 
@@ -46,4 +47,4 @@
 
 6. Copy and Paste: 
 
-    Throughout the process we are just asking more questions, reviewing, organizing, verifying, and reordering information received in our conversations with ChatGPT-4.  When any inquiry to ChatGPT proved to meet usefulness criteria aforementioned here, it can simply be copied and pasted to another .doc or .txt file or just dropped directly into [Chatbase](https://www.chatbase.co/) to optimize the results for anyone using our chatbot.
+    Throughout the process we are just asking more questions, reviewing, organizing, verifying, and reordering information received in our conversations with ChatGPT-4.  When any inquiry to ChatGPT proved to meet usefulness criteria aforementioned here, it can simply be copied and pasted to another .doc or .txt file and just dropped directly into [Chatbase](https://www.chatbase.co/) to optimize the results for anyone using our chatbot.
