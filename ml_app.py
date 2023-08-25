@@ -50,12 +50,12 @@ html_string = '''
 
 <script>
   window.chatbaseConfig = {
-    chatbotId: "MoyUvYtyVx2gWrXYAS-Sy",
+    chatbotId: "BVBAK0IYTdwsPWu5mCyZh",
   }
 </script>
 <script
   src="https://www.chatbase.co/embed.min.js"
-  id="MoyUvYtyVx2gWrXYAS-Sy"
+  id="BVBAK0IYTdwsPWu5mCyZh"
   defer>
 </script>
 
