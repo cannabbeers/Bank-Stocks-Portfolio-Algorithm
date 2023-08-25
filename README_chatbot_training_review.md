@@ -5,11 +5,11 @@
 
 1. Define the Objective: 
 
-    Create a chatbot that has been given some current information about the bank sector, specific bank stocks, and other information that is current since the base GPT4 model is only trained up to September of 2021.  We utilize the ChatGPT API from **[OpenAI]**(https://openai.com/product) and want to make sure it can provide recent financials with relevant numbers from 2023.
+    Create a chatbot that has been given some current information about the bank sector, specific bank stocks, and other information that is current since the base GPT4 model is only trained up to September of 2021.  We utilize the ChatGPT API from **[OpenAI](https://openai.com/product)** and want to make sure it can provide recent financials with relevant numbers from 2023.
 
 2. Find Relevant Data:
 
-    There are many ways to collect data and prepare it to feed the model.  It can be done manually by typing out definitions, copying and uploading .csv and .pdf files, etc., and then writing `Python` code that would instill this information into the chatbot.  We needed a faster solution so we decided to collect the data directly from ChatGPT-4 by leveraging the built-in *Plugin store* to *Install* plugins that can fetch the information we needed to enhance the bot's functionality.  In this initial version we are not enabling plugins for our chatbot, however, we do utilize them to gather the data we want, manipulate and organize the data, and then decide what data we wish to load for the bot through another 3rd party application called **[Chatbase]**(https://www.chatbase.co/)
+    There are many ways to collect data and prepare it to feed the model.  It can be done manually by typing out definitions, copying and uploading .csv and .pdf files, etc., and then writing `Python` code that would instill this information into the chatbot.  We needed a faster solution so we decided to collect the data directly from ChatGPT-4 by leveraging the built-in *Plugin store* to *Install* plugins that can fetch the information we needed to enhance the bot's functionality.  In this initial version we are not enabling plugins for our chatbot, however, we do utilize them to gather the data we want, manipulate and organize the data, and then decide what data we wish to load for the bot through another 3rd party application called **[Chatbase](https://www.chatbase.co/)**
 
 3. Choose and Install Plugins for [ChatGPT 4](https://chat.openai.com/) *(to build our chatbot's data vocabulary and knowledge)*:
 
@@ -20,7 +20,7 @@
 
 4. Collect Data and Organize Results Through Iterative Process:
 
-    Starting with simple, basic inquiries about our subject matter, to ChatGPT-4 (with our chosen plugins enabled), the process quickly becomes a journey into a long conversation of asking for information, assesing what the responses mean, evaluating usefulness, and then back feeding the answers to inquires into the conversation to manipulate findings to generate organized and useful information without need for any code.  There is no one way to achieve this goal, but the steps taken here are right out of the playbook of any adept **Prompt Engineer**.
+    Starting with simple, basic inquiries about our subject matter, to ChatGPT-4 (with our chosen plugins enabled), the process quickly becomes a journey into a long conversation of asking for information, assesing what the responses mean, evaluating usefulness, and then back feeding the answers to inquires into the conversation to manipulate findings to generate organized and useful information without need for any code.  There is no one way to achieve this goal, but the steps taken here are right out of the playbook of a **Prompt Engineer**.
     1. start with a basic prompt - *"please list all major bank stocks and provide relevant financials for each"*
     2. iterative refinement - every response to our inquiries provides some information, copy and paste the responses back into conversation with more questions or instructions, here are some examples of just some of what was done to get the desired information that we will later load into our bot using [Chatbase](https://www.chatbase.co/):
         + *"list stock prices and important financial information about this list of bank stocks"* 
