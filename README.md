@@ -1,6 +1,6 @@
 # _Bank Stocks Portfolio Algorithm_
 
-  In our second project we developed a bank stock advisor. Our code runs a ML model to predict bank stock prices which then allows us to give/receive advice based on a persons' portfolio. 
+  In this project we developed a bank stock advisor. Our code runs a ML model to predict bank stock prices which then allows us to give/receive advice based on a persons' portfolio. Also attached is a chatbot powered by GPT-3.5 which has been fine-tuned to answer finacial questions as an educational finacial advisor. (Note, this should not be used to trade real assests, always check with an actual certified finacial advisor before making decisions that can affect your finances)
   
 -----------------
 
