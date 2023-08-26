@@ -25,7 +25,7 @@ This version is identical to the one you can set up locally following the instru
 
 ## Installation 
 
-  In order to properly use our code there is a couple of things that need to initally be installed which include.
+  If you wish to install our code, there are a couple of things that need to initally be installed which include.
 
   - [Anaconda](https://www.anaconda.com/download/)
   - [Python](https://www.python.org/downloads/release/python-3717/)
@@ -34,7 +34,7 @@ This version is identical to the one you can set up locally following the instru
   After all of the things above have been installed you can then proceed with cloning the code(to either a pre-created folder or a new folder).  
   1. Go the the github repository and locate the green code button  
   2. Click on the code button and then copy the HTTPS link provided  
-  3. Open a terminal and navigate to where you would like the code to be i.e. ```cd .\project2\.```  
+  3. Open a terminal and navigate to where you would like the code to be i.e. ```cd .\project3\.```  
   4. Run the ```git clone https://github.com/greg-krulin/Project-2-.git``` command  
  
 https://github.com/greg-krulin/Project-2-/assets/127170402/a15aa7d7-cf0d-487a-9e5f-3c53c135f674
