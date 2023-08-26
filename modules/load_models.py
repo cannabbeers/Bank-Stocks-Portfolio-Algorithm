@@ -14,11 +14,9 @@ filenames = [
     'sgd_regressor.pkl',
     'gaussian_process_regressor.pkl',
     'decision_tree_regressor.pkl',
-    'random_forest_regressor.pkl',
     'gradient_boosting_regressor.pkl',
     'mlp_regressor.pkl',
     'kernel_ridge.pkl',
-    'elastic_net.pkl',
     'bayesian_ridge.pkl'
 ]
 
@@ -32,11 +30,9 @@ variables = [
     'sgd_regressor_dict',
     'gaussian_process_regressor_dict',
     'decision_tree_regressor_dict',
-    'random_forest_regressor_dict',
     'gradient_boosting_regressor_dict',
     'mlp_regressor_dict',
     'kernel_ridge_dict',
-    'elastic_net_dict',
     'bayesian_ridge_dict'
 ]
 
