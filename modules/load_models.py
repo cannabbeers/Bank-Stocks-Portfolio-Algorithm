@@ -1,5 +1,7 @@
 import pickle
 import os
+import logging
+logging.basicConfig(level=logging.INFO)
 
 # Base directory for the models
 base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'resources', 'Models')
@@ -36,9 +38,14 @@ variables = [
     'bayesian_ridge_dict'
 ]
 
+
+
 # Load each dictionary from its file
 for filename, var_name in zip(filenames, variables):
-    with open(os.path.join(base_dir, filename), 'rb') as file:
+    file_path = os.path.join(base_dir, filename)  # Construct the full file path
+    logging.info(f"Trying to open: {file_path}")  # Log the path
+    with open(file_path, 'rb') as file:
         globals()[var_name] = pickle.load(file)
+
 
 # Now, each dictionary is loaded back into its respective variable
