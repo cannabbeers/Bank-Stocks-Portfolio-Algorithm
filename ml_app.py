@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 from modules.ml_models_code import multi_target_linear_regression
 from modules.clean_data import stock_close_analysis_df, stock_analysis_df, stock_data, corr_matrix, app_description, ml_results_description_dict 
-from modules.load_models import linear_regression_dict, lgbm_regressor_dict, svr_dict, nu_svr_dict, linear_svr_dict, sgd_regressor_dict, gaussian_process_regressor_dict, decision_tree_regressor_dict, random_forest_regressor_dict, gradient_boosting_regressor_dict, mlp_regressor_dict, kernel_ridge_dict, elastic_net_dict, bayesian_ridge_dict
+from modules.load_models import linear_regression_dict, lgbm_regressor_dict, svr_dict, nu_svr_dict, linear_svr_dict, sgd_regressor_dict, gaussian_process_regressor_dict, decision_tree_regressor_dict, gradient_boosting_regressor_dict, mlp_regressor_dict, kernel_ridge_dict, bayesian_ridge_dict
 
 import streamlit as st
 import streamlit.components.v1 as components
